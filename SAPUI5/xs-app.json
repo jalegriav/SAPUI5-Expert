@@ -1,4 +1,4 @@
-{
+    {
   "welcomeFile": "/index.html",
   "authenticationMethod": "none",
   "logout": {
@@ -8,7 +8,7 @@
     {
       "authenticationType": "none",
       "csrfProtection": false,
-      "source": "^/Northwind/v2/northwind/northwind.svc/(.*)$",
+      "source": "^/Northwind/(.*)$",
       "destination": "Northwind",
       "target": "$1"
     },
