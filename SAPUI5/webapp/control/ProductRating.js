@@ -69,12 +69,12 @@ sap.ui.define([
                 }).addStyleClass("sapUiTinyMarginTopBottom"))
             },
 
-            _onRate: function(){
+            _onRate: function(oEvent) {
                 const oResourceBundle = this.getModel("i18n").getResourceBundle();
                 const fValue = oEvent.getParameter("value");
 
-                this.setProperty("value", fvalue, true);
-                this.getAggregation("_label").setText(oResourceBundle.getText("productratingLabelFinal", [fvalue,oEvent.getSource().getMaxValue()]));
+                this.setProperty("value", fValue, true);
+                this.getAggregation("_label").setText(oResourceBundle.getText("productRatingIndicator", [fValue,oEvent.getSource().getMaxValue()]));
                 this.getAggregation("_button").setDesign("Bold");
             },
 
@@ -97,13 +97,13 @@ sap.ui.define([
                 this.getAggregation("_button").setEnabled(true);                
             },
 
-            setValue: function() {
-                this.setProperty("value", fvalue, true);
-                this.getAggregation("_rating").setValue(fvalue);
+            setValue: function(fValue) {
+                this.setProperty("value", fValue, true);
+                this.getAggregation("_rating").setValue(fValue);
             },
 
             renderer: function (oRm, oControl) {
-                oRm.openStar("div", oControl);
+                oRm.openStart("div", oControl);
                 oRm.class("productRating");
                 oRm.openEnd();
                 oRm.renderControl(oControl.getAggregation("_rating"));
